@@ -1,5 +1,5 @@
-import {USER_MENU_ITEMS, USER} from "../constants";
-import {isSeparator} from "../types";
+import {USER, USER_MENU_ITEMS} from "../constants";
+import {NavLink} from "react-router";
 
 interface Props {
     onClose: () => void;
@@ -17,11 +17,12 @@ export default function UserDropdown({onClose}: Props) {
 
             <div className="p-1.5">
                 {USER_MENU_ITEMS.map((entry, i) =>
-                    isSeparator(entry) ? (
+                    "sep" in entry ? (
                         <div key={i} className="my-1.5 h-px bg-white/10"/>
                     ) : (
-                        <button
+                        <NavLink
                             key={entry.label}
+                            to={"/" + entry.label.toLowerCase()}
                             onClick={onClose}
                             className={[
                                 "flex items-center gap-2.5 w-full px-2.5 py-2 rounded-lg",
@@ -34,7 +35,7 @@ export default function UserDropdown({onClose}: Props) {
                         >
                             <span className="opacity-50">{entry.icon}</span>
                             {entry.label}
-                        </button>
+                        </NavLink>
                     )
                 )}
             </div>
