@@ -1,7 +1,6 @@
 import type {MenuEntry} from "./types";
 
-export const NAV_LINKS = ["Home", "About", "Services", "Pricing", "Contact"] as const;
-export type NavLabel = (typeof NAV_LINKS)[number];
+export const NAV_LINKS = ["About", "Services", "Pricing", "Contact"] as const;
 
 export const USER = {
     name: "Joseph McFall",
@@ -10,7 +9,7 @@ export const USER = {
     email: "name@taskpane.io",
 } as const;
 
-export const MENU_ITEMS: MenuEntry[] = [
+export const USER_MENU_ITEMS: MenuEntry[] = [
     {
         label: "Dashboard",
         icon: (

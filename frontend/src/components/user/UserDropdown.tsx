@@ -1,4 +1,4 @@
-import {MENU_ITEMS, USER} from "../constants";
+import {USER_MENU_ITEMS, USER} from "../constants";
 import {isSeparator} from "../types";
 
 interface Props {
@@ -16,7 +16,7 @@ export default function UserDropdown({onClose}: Props) {
             </div>
 
             <div className="p-1.5">
-                {MENU_ITEMS.map((entry, i) =>
+                {USER_MENU_ITEMS.map((entry, i) =>
                     isSeparator(entry) ? (
                         <div key={i} className="my-1.5 h-px bg-white/10"/>
                     ) : (
