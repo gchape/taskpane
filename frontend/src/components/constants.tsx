@@ -1,4 +1,4 @@
-import type { MenuEntry } from "./types";
+import type { MenuEntry } from "../types";
 
 export const NAV_LINKS = ["About", "Services", "Pricing", "Contact"] as const;
 

@@ -1,6 +1,6 @@
 import { NavLink } from "react-router";
+import type { User } from "../../types";
 import { USER_MENU_ITEMS } from "../constants";
-import type { User } from "../types";
 
 interface Props {
   user: User;
