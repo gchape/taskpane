@@ -1,0 +1,47 @@
+spring:
+  application:
+    name: backend
+
+  profiles:
+    active: dev
+
+  jpa:
+    open-in-view: false
+
+  datasource:
+    hikari:
+      minimum-idle: 2
+      idle-timeout: 30_000
+      maximum-pool-size: 10
+      connection-timeout: 30_000
+      pool-name: BackendHikariCP
+
+server:
+  port: 8080
+
+---
+spring:
+  config:
+    activate:
+      on-profile: dev
+
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+  datasource:
+    username: postgres
+    password: qwas1324
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/postgres
+
+  flyway:
+    url: ${spring.datasource.url}
+    user: ${spring.datasource.username}
+    password: ${spring.datasource.password}
+    driver-class-name: ${spring.datasource.driver-class-name}
+
+---
+spring:
+  config:
+    activate:
+      on-profile: prod
