@@ -1,3 +1,4 @@
+"use client";
 import { NAV_LINKS } from "../constants";
 import { NavLink } from "react-router";
 

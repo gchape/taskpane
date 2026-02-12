@@ -6,8 +6,58 @@ body {
   margin: 0;
   padding: 0;
   width: 100vw;
-  height: 100vh;
-  background-color: darkblue;
+  min-height: 100vh;
+  background-color: #09090b;
+  background-image: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.07) 1px,
+    transparent 1px
+  );
+  background-size: 24px 24px;
+  position: relative;
+}
+
+body::before {
+  content: "";
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.03) 0%, transparent 60%),
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 119px,
+      rgba(255, 255, 255, 0.035) 119px,
+      rgba(255, 255, 255, 0.035) 120px
+    );
+  mask-image: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.8) 0%,
+    rgba(0, 0, 0, 0) 55%
+  );
+  -webkit-mask-image: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.8) 0%,
+    rgba(0, 0, 0, 0) 55%
+  );
+  z-index: 0;
+}
+
+body::after {
+  content: "";
+  pointer-events: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 300px;
+  background: radial-gradient(
+    ellipse 70% 100% at 50% 0%,
+    rgba(163, 230, 53, 0.055) 0%,
+    transparent 70%
+  );
+  z-index: 0;
 }
 
 @keyframes spin-dash {
@@ -20,35 +70,6 @@ body {
   stroke-dasharray: 18 170;
   animation: spin-dash 6s linear infinite;
   transform-origin: 50% 50%;
-}
-
-@keyframes badge-pulse {
-  0%,
-  100% {
-    box-shadow: 0 0 0 0 rgba(163, 230, 53, 0.55);
-  }
-  50% {
-    box-shadow: 0 0 0 5px rgba(163, 230, 53, 0);
-  }
-}
-
-.badge-pulse {
-  animation: badge-pulse 2s ease-in-out infinite;
-}
-
-@keyframes dropdown-in {
-  from {
-    opacity: 0;
-    transform: scale(0.94) translateY(-6px);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1) translateY(0);
-  }
-}
-
-.dropdown-enter {
-  animation: dropdown-in 0.17s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
 }
 
 .nav-underline::after {
@@ -69,4 +90,48 @@ body {
 .nav-underline.active::after {
   left: 0;
   right: 0;
+}
+
+@keyframes badge-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(163, 230, 53, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 0 4px rgba(163, 230, 53, 0);
+  }
+}
+.badge-pulse {
+  animation: badge-pulse 2.4s ease-in-out infinite;
+}
+
+@keyframes dropdown-in {
+  from {
+    opacity: 0;
+    transform: translateY(-6px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+.dropdown-enter {
+  animation: dropdown-in 0.18s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  transform-origin: top right;
+}
+
+@keyframes item-in {
+  from {
+    opacity: 0;
+    transform: translateX(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.notification-item {
+  opacity: 0;
+  animation: item-in 0.22s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }

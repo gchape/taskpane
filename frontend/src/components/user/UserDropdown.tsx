@@ -2,7 +2,7 @@ import { NavLink } from "react-router";
 import type { User } from "../../types";
 import { USER_MENU_ITEMS } from "../constants";
 
-interface Props {
+interface UserDropdownProps {
   user: User;
   onClick: () => void;
 }
@@ -10,7 +10,7 @@ interface Props {
 export default function UserDropdown({
   onClick,
   user: { email, name },
-}: Props) {
+}: UserDropdownProps) {
   return (
     <div
       className="dropdown-enter absolute top-[calc(100%+10px)] right-0 w-56 rounded-xl border border-white/10 bg-zinc-900 overflow-hidden z-50"
