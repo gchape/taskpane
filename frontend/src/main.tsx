@@ -6,6 +6,7 @@ import "./index.css";
 import { UserProvider } from "./features/context/UserContext.tsx";
 import { NotificationsProvider } from "./features/context/NotificationContext.tsx";
 import Hero from "./components/hero/Hero.tsx";
+import SignIn from "./components/sign/SignIn.tsx";
 
 const router = createBrowserRouter([
   {
@@ -17,6 +18,10 @@ const router = createBrowserRouter([
         Component: Hero,
       },
     ],
+  },
+  {
+    path: "/get-started",
+    Component: SignIn,
   },
 ]);
 
