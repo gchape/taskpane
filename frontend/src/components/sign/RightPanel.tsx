@@ -1,7 +1,7 @@
 import RightPanelImage from "../../assets/dIMJWLx1YbE.webp";
 
 const RightPanel = () => (
-  <div className="relative flex-1 overflow-hidden">
+  <div className="relative flex-1 hidden lg:inline-block overflow-hidden">
     <img
       src={RightPanelImage}
       alt="Office"

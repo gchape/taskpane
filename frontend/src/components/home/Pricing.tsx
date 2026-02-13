@@ -5,10 +5,7 @@ import { plans } from "../constants";
 
 export function Pricing() {
   return (
-    <section
-      id="pricing"
-      className="relative z-10 max-w-6xl mx-auto px-6 pb-32 scroll-mt-20"
-    >
+    <section id="pricing" className="relative z-10 max-w-6xl scroll-mt-20">
       <motion.div
         initial={{ opacity: 0, y: 12 }}
         whileInView={{ opacity: 1, y: 0 }}

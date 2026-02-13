@@ -5,7 +5,7 @@ import Geometry from "./Geometry";
 
 export default function Hero() {
   return (
-    <section className="relative z-10 pt-32 max-w-6xl mx-auto px-6 overflow-visible">
+    <section className="relative z-10 max-w-6xl overflow-visible">
       <div
         className="absolute inset-0 overflow-visible pointer-events-none"
         aria-hidden
@@ -20,7 +20,7 @@ export default function Hero() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
       >
-        <h1 className="text-5xl font-bold tracking-tight text-white/85 leading-none">
+        <h1 className="text-5xl font-bold tracking-wider lg:tracking-tighter text-white/85 leading-none">
           Build faster.
           <br />
           Ship smarter.

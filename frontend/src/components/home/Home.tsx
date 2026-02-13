@@ -6,13 +6,17 @@ import { ScrollRings } from "./ScrollRings";
 import { Services } from "./Services";
 
 const Home = () => (
-  <>
-    <Hero />
-    <ScrollRings />
-    <Services />
-    <HowItWorks />
-    <Pricing />
-  </>
+  <div className="flex flex-col mx-4 border-l-2 border-l-white/12 border-r-2 border-r-white/6 border-dashed">
+    <div className="flex flex-col py-24 px-4 lg:px-12 gap-6 justify-center items-start">
+      <Hero />
+      <ScrollRings />
+    </div>
+    <div className="flex flex-col justify-around gap-24 lg:gap-24 pb-24 px-1 lg:px-12">
+      <Services />
+      <HowItWorks />
+      <Pricing />
+    </div>
+  </div>
 );
 
 export default Home;

@@ -137,7 +137,7 @@ const RegisterForm = () => (
 
     <button
       type="submit"
-      className="w-full h-10.5 bg-lime-400 text-zinc-950 text-[12px] font-bold uppercase tracking-widest rounded-[9px] mb-7 cursor-pointer transition-all duration-150 hover:opacity-90 hover:shadow-[0_0_20px_rgba(163,230,53,0.25)]"
+      className="w-full h-10.5 bg-lime-400 text-zinc-950 text-[12px] font-bold uppercase tracking-widest rounded-[9px] cursor-pointer transition-all duration-150 hover:opacity-90 hover:shadow-[0_0_20px_rgba(163,230,53,0.25)]"
     >
       Create account
     </button>

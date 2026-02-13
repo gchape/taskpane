@@ -8,7 +8,7 @@ export function ScrollRings() {
   };
 
   return (
-    <div className="relative z-10 max-w-6xl mx-auto px-6 pt-16 flex items-center gap-5">
+    <div className="relative z-10 max-w-6xl flex items-center gap-5">
       {rings.map((ring, i) => (
         <motion.button
           key={ring.id}

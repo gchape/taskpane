@@ -6,7 +6,7 @@ export function Services() {
   return (
     <section
       id="services"
-      className="relative z-10 max-w-6xl mx-auto px-6 pt-32 scroll-mt-20"
+      className="relative z-10 max-w-6xl scroll-mt-20"
     >
       <motion.div
         initial={{ opacity: 0, y: 12 }}

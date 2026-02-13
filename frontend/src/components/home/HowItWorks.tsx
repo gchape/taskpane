@@ -4,10 +4,7 @@ import { steps } from "../constants";
 
 export function HowItWorks() {
   return (
-    <section
-      className="relative z-10 max-w-6xl mx-auto px-6 py-32"
-      id="how-it-works"
-    >
+    <section className="relative z-10 max-w-6xl" id="how-it-works">
       <motion.div
         initial={{ opacity: 0, y: 12 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -34,8 +31,6 @@ export function HowItWorks() {
       </motion.h2>
 
       <div className="relative flex flex-col lg:flex-row gap-0">
-        <div className="hidden lg:block absolute top-9 left-0 right-[calc(16.66%+18px)] h-px bg-white/6 z-0" />
-
         {steps.map((step, i) => (
           <motion.div
             key={step.id}

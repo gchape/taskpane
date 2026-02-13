@@ -14,7 +14,7 @@ export default function NotificationDropdown({
 }: NotificationDropdownProps) {
   return (
     <div
-      className="dropdown-enter absolute top-[calc(100%+10px)] right-0 w-72 rounded-xl border border-white/10 bg-zinc-900 overflow-hidden z-50"
+      className="dropdown-enter absolute top-[calc(100%+10px)] right-0 w-68 rounded-xl border border-white/10 bg-zinc-900 overflow-hidden z-50"
       style={{
         boxShadow:
           "0 20px 60px rgba(0,0,0,.65), 0 0 0 1px rgba(255,255,255,0.04)",
