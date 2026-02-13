@@ -4,7 +4,9 @@ import { rings } from "../constants";
 
 export function ScrollRings() {
   const scrollTo = (id: string) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+    document
+      .getElementById(id)
+      ?.scrollIntoView({ behavior: "smooth", block: "center" });
   };
 
   return (
