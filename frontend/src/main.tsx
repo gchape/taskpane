@@ -7,6 +7,7 @@ import { NotificationsProvider } from "./features/context/NotificationContext.ts
 import SignIn from "./components/sign/SignIn.tsx";
 import "./index.css";
 import Home from "./components/home/Home.tsx";
+import RegisterForm from "./components/register/Register.tsx";
 
 const router = createBrowserRouter([
   {
@@ -16,6 +17,10 @@ const router = createBrowserRouter([
       {
         index: true,
         Component: Home,
+      },
+      {
+        path: "/register",
+        Component: RegisterForm,
       },
       {
         path: "/about",
