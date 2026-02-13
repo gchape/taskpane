@@ -2,11 +2,11 @@ import { createRoot } from "react-dom/client";
 import { RouterProvider } from "react-router/dom";
 import { createBrowserRouter } from "react-router";
 import NavBar from "./components/navbar/NavBar.tsx";
-import "./index.css";
 import { UserProvider } from "./features/context/UserContext.tsx";
 import { NotificationsProvider } from "./features/context/NotificationContext.tsx";
-import Hero from "./components/hero/Hero.tsx";
 import SignIn from "./components/sign/SignIn.tsx";
+import "./index.css";
+import Home from "./components/home/Home.tsx";
 
 const router = createBrowserRouter([
   {
@@ -15,7 +15,16 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        Component: Hero,
+        Component: Home,
+      },
+      {
+        path: "/about",
+      },
+      {
+        path: "/contact",
+      },
+      {
+        path: "/docs",
       },
     ],
   },

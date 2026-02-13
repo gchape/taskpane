@@ -1,9 +1,11 @@
-interface Props {
+"use client";
+
+type BurgerMenuProps = {
   isOpen: boolean;
   onClick: () => void;
-}
+};
 
-export default function BurgerMenu({ isOpen, onClick }: Props) {
+export default function BurgerMenu({ isOpen, onClick }: BurgerMenuProps) {
   return (
     <button
       onClick={onClick}

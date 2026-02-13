@@ -2,11 +2,16 @@
 
 @import "tailwindcss";
 
+html {
+  scrollbar-width: none;
+}
+
 body {
   margin: 0;
   padding: 0;
   width: 100vw;
   min-height: 100vh;
+  cursor: crosshair;
   background-color: #09090b;
   background-image: radial-gradient(
     circle,
@@ -15,6 +20,13 @@ body {
   );
   background-size: 24px 24px;
   position: relative;
+  overflow-x: hidden;
+  -ms-overflow-style: none;
+}
+
+body::-webkit-scrollbar,
+body::-webkit-scrollbar-button {
+  display: none;
 }
 
 body::before {

@@ -1,8 +1,12 @@
 import { useEffect, useRef, useState } from "react";
-import { USER } from "../constants";
 import UserDropdown from "./UserDropdown";
+import type { User } from "../../types";
 
-export default function UserMenu() {
+type UserMenuProps = {
+  user: User;
+};
+
+export default function UserMenu({ user }: UserMenuProps) {
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
@@ -24,14 +28,14 @@ export default function UserMenu() {
         className="flex items-center gap-2 pl-3 pr-2 py-1 rounded-full border border-white/10 bg-zinc-900 cursor-pointer transition-colors duration-150 hover:border-lime-400/30 hover:bg-lime-400/5"
       >
         <span className="hidden sm:block text-[12px] text-zinc-400 font-mono tracking-wide">
-          {USER.shortName}
+          {user.shortName}
         </span>
 
         <div
           className="w-7 h-7 rounded-full flex items-center justify-center text-[11px] font-bold text-zinc-900 select-none shrink-0"
           style={{ background: "linear-gradient(135deg, #a3e635, #22d3ee)" }}
         >
-          {USER.initials}
+          {user.initials}
         </div>
 
         <svg
@@ -48,7 +52,7 @@ export default function UserMenu() {
         </svg>
       </button>
 
-      {open && <UserDropdown onClick={() => setOpen(false)} user={USER} />}
+      {open && <UserDropdown onClick={() => setOpen(false)} user={user} />}
     </div>
   );
 }

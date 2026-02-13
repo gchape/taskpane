@@ -1,13 +1,14 @@
-import { NAV_LINKS } from "../constants";
+"use client";
 import { NavLink } from "react-router";
+import { links } from "../constants";
 
 export default function MobileMenu() {
   return (
     <div className="md:hidden flex flex-col bg-zinc-900 border-t border-white/10 px-4 pb-5 pt-2">
-      {NAV_LINKS.map((link) => (
+      {links.map(({ label, to }) => (
         <NavLink
-          key={link}
-          to={"/" + link.toLowerCase()}
+          key={label}
+          to={to}
           className={({ isActive }) =>
             [
               "flex items-center justify-between",
@@ -18,7 +19,7 @@ export default function MobileMenu() {
             ].join(" ")
           }
         >
-          {link}
+          {label}
           <svg
             width="12"
             height="12"

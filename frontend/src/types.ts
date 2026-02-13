@@ -1,3 +1,4 @@
+import type { TargetAndTransition, Transition } from "motion";
 import * as React from "react";
 
 export interface MenuItem {
@@ -26,3 +27,15 @@ export type Notification = {
   author: string;
   timestamp: Date;
 };
+
+export interface Shape {
+  id: string;
+  type: "rect" | "circle" | "plus";
+  style: Record<string, string | number>;
+  animate: TargetAndTransition;
+  transition: Transition;
+  stroke: string;
+  fill?: string;
+  strokeWidth: number;
+  strokeDasharray?: string;
+}

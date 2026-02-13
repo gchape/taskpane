@@ -1,33 +1,53 @@
 import { NavLink } from "react-router";
 
 const SignInForm = () => (
-  <form>
+  <form method="post">
     <div className="flex flex-col gap-1.5 mb-5">
-      <label className="text-[11px] font-semibold text-zinc-500 uppercase tracking-widest">
+      <label
+        htmlFor="email"
+        className="text-[11px] font-semibold text-zinc-500 uppercase tracking-widest"
+      >
         Email address
       </label>
       <input
         required
         type="email"
+        id="email"
         placeholder="you@example.com"
-        className="h-10.5 bg-zinc-900 border border-white/8 rounded-[9px] px-3.5 text-[13px] text-zinc-100 placeholder-zinc-700 outline-none transition-all duration-150 focus:border-lime-400/40 focus:shadow-[0_0_0_3px_rgba(163,230,53,0.07)]"
+        title="Please enter a valid email address."
+        aria-describedby="emailHelp"
+        className="h-10.5 bg-zinc-900 border border-white/8 rounded-[9px] px-3.5 text-[13px] text-zinc-100 placeholder-zinc-700 outline-none transition-colors duration-150 focus:border-lime-400/40 focus:shadow-[0_0_0_3px_rgba(163,230,53,0.07)] invalid:border-red-900"
       />
+      <p id="emailHelp" className="text-xs text-zinc-500">
+        Enter a valid email (e.g., you@example.com).
+      </p>
     </div>
 
     <div className="flex flex-col gap-1.5 mb-5">
-      <label className="text-[11px] font-semibold text-zinc-500 uppercase tracking-widest">
+      <label
+        htmlFor="password"
+        className="text-[11px] font-semibold text-zinc-500 uppercase tracking-widest"
+      >
         Password
       </label>
       <input
+        required
+        id="password"
         type="password"
         placeholder="••••••••"
-        className="h-10.5 bg-zinc-900 border border-white/8 rounded-[9px] px-3.5 text-[13px] text-zinc-100 placeholder-zinc-700 outline-none transition-all duration-150 focus:border-lime-400/40 focus:shadow-[0_0_0_3px_rgba(163,230,53,0.07)]"
+        pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$"
+        title="Password must contain at least 1 uppercase letter, 1 special symbol, 1 number and be at least 8 characters long."
+        className="h-10.5 bg-zinc-900 border border-white/8 rounded-[9px] px-3.5 text-[13px] text-zinc-100 placeholder-zinc-700 outline-none transition-colors duration-150 focus:border-lime-400/40 focus:shadow-[0_0_0_3px_rgba(163,230,53,0.07)] invalid:border-red-900"
       />
     </div>
 
     <div className="flex items-center justify-between mb-7">
       <label className="flex items-center gap-2 text-[12px] text-zinc-500 cursor-pointer">
-        <input type="checkbox" className="accent-lime-400 rounded" checked />
+        <input
+          type="checkbox"
+          className="accent-lime-400 rounded"
+          defaultChecked
+        />
         Remember me
       </label>
       <NavLink

@@ -8,6 +8,7 @@ import { NavLink, Outlet } from "react-router";
 import { useUser } from "../../features/context/UserContext.tsx";
 import React from "react";
 import Notifications from "../notification/Notifications.tsx";
+import { motion } from "motion/react";
 
 export default function NavBar() {
   const user = useUser();
@@ -31,14 +32,24 @@ export default function NavBar() {
               <div className="hidden sm:block w-px h-5 bg-white/8" />
 
               {user.currentUser ? (
-                <UserMenu />
+                <UserMenu user={user.currentUser}/>
               ) : (
-                <NavLink
-                  className="hidden sm:block cursor-pointer text-zinc-500 hover:text-zinc-100 hover:bg-white/5 px-3.5 py-1.5 text-[12px] uppercase tracking-widest font-semibold rounded-md transition duration-150"
-                  to="/get-started"
+                <motion.div
+                  whileHover={{
+                    scale: 1.05,
+                    transition: {
+                      duration: 0.1,
+                      ease: "easeOut",
+                    },
+                  }}
                 >
-                  Get Started
-                </NavLink>
+                  <NavLink
+                    className="hidden sm:block cursor-pointer text-zinc-500 hover:text-lime-400 hover:bg-white/5 px-3.5 py-1.5 text-[12.5px] uppercase tracking-wide font-semibold rounded-md transition duration-150"
+                    to="/get-started"
+                  >
+                    Get Started
+                  </NavLink>
+                </motion.div>
               )}
 
               <BurgerMenu

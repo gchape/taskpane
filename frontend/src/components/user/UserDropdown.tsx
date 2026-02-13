@@ -1,6 +1,6 @@
 import { NavLink } from "react-router";
 import type { User } from "../../types";
-import { USER_MENU_ITEMS } from "../constants";
+import { items } from "../constants";
 
 interface UserDropdownProps {
   user: User;
@@ -26,7 +26,7 @@ export default function UserDropdown({
       </div>
 
       <div className="p-1.5">
-        {USER_MENU_ITEMS.map((entry, i) =>
+        {items.map((entry, i) =>
           "sep" in entry ? (
             <div key={i} className="my-1.5 h-px bg-white/10" />
           ) : (
