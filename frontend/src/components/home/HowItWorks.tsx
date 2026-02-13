@@ -44,10 +44,6 @@ export function HowItWorks() {
             }}
             className="relative flex-1 flex flex-col items-center gap-6 px-0 pb-12 lg:px-10 lg:items-start lg:pb-0"
           >
-            {i < steps.length && (
-              <span className="lg:hidden absolute left-4.25 top-14 bottom-0 w-px bg-white/6" />
-            )}
-
             <div className="relative z-10 flex items-center justify-center w-9 h-9 rounded-full bg-zinc-900 border border-white/8 text-lime-400 shrink-0">
               {step.icon}
               <span className="absolute -top-0.5 -right-0.5 w-2 h-2 rounded-full bg-lime-400 border-2 border-[#09090b]" />

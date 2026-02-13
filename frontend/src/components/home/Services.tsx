@@ -4,10 +4,7 @@ import { services } from "../constants";
 
 export function Services() {
   return (
-    <section
-      id="services"
-      className="relative z-10 max-w-6xl scroll-mt-20"
-    >
+    <section id="services" className="relative z-10 max-w-6xl scroll-mt-20">
       <motion.div
         initial={{ opacity: 0, y: 12 }}
         whileInView={{ opacity: 1, y: 0 }}

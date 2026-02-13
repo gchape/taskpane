@@ -7,7 +7,7 @@ export default function Hero() {
   return (
     <section className="relative z-10 max-w-6xl overflow-visible">
       <div
-        className="absolute inset-0 overflow-visible pointer-events-none"
+        className="absolute lg:left-320 inset-0 overflow-visible pointer-events-none"
         aria-hidden
       >
         {shapes.map((shape) => (
