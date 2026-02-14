@@ -9,7 +9,8 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
 @SpringBootApplication(
         proxyBeanMethods = false,
         scanBasePackages = {
-                "io.taskpane.backend.security",
+                "io.taskpane.backend.dao",
+                "io.taskpane.backend.config",
                 "io.taskpane.backend.controller",
         },
         exclude = {

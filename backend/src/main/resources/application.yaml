@@ -7,6 +7,10 @@ spring:
 
   jpa:
     open-in-view: false
+    properties:
+      hibernate:
+        multiTenancy: SCHEMA
+        default_schema: public
 
   datasource:
     hikari:
