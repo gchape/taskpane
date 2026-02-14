@@ -20,12 +20,12 @@ CREATE TABLE employee
 (
     id            BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     company_id    BIGINT        NOT NULL REFERENCES company (id) ON DELETE CASCADE,
+    created_at    TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
     role          employee_role NOT NULL   DEFAULT 'EMPLOYEE',
     email         VARCHAR(255)  NOT NULL,
     first_name    VARCHAR(64)   NOT NULL,
     last_name     VARCHAR(64)   NOT NULL,
-    password_hash VARCHAR(255)  NOT NULL,
-    created_at    TIMESTAMP WITH TIME ZONE DEFAULT NOW()
+    password_hash VARCHAR(255)  NOT NULL
 );
 
 CREATE UNIQUE INDEX unique_employee_email_per_company
@@ -36,10 +36,10 @@ CREATE TABLE project
     id          BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     company_id  BIGINT       NOT NULL REFERENCES company (id) ON DELETE CASCADE,
     manager_id  BIGINT       REFERENCES employee (id) ON DELETE SET NULL,
+    created_at  TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
     is_done     BOOLEAN      NOT NULL    DEFAULT FALSE,
     title       VARCHAR(255) NOT NULL,
-    description TEXT,
-    created_at  TIMESTAMP WITH TIME ZONE DEFAULT NOW()
+    description TEXT
 );
 
 CREATE TYPE task_status AS ENUM (
@@ -54,12 +54,12 @@ CREATE TABLE task
     id          BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     project_id  BIGINT       NOT NULL REFERENCES project (id) ON DELETE CASCADE,
     assignee_id BIGINT       REFERENCES employee (id) ON DELETE SET NULL,
+    created_at  TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
     start_date  DATE         NOT NULL,
     due_date    DATE         NOT NULL,
     title       VARCHAR(255) NOT NULL,
     description TEXT,
     status      task_status  NOT NULL    DEFAULT 'TODO',
-    created_at  TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
 
     CONSTRAINT check_start_date
         CHECK (start_date <= due_date)

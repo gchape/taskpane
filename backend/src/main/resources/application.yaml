@@ -11,6 +11,8 @@ spring:
       hibernate:
         multiTenancy: SCHEMA
         default_schema: public
+    hibernate:
+      ddl-auto: validate
 
   datasource:
     hikari:
@@ -29,9 +31,6 @@ spring:
     activate:
       on-profile: dev
 
-  jpa:
-    hibernate:
-      ddl-auto: create-drop
   datasource:
     username: postgres
     password: qwas1324
