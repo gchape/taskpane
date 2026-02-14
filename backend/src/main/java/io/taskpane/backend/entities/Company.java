@@ -28,12 +28,12 @@ public class Company {
     @ColumnDefault("now()")
     private OffsetDateTime createdAt;
 
+    protected Company() {
+    }
+
     public Company(String name, Contact contact) {
         this.name = name;
         this.contact = contact;
-    }
-
-    protected Company() {
     }
 
     public Long getId() {
