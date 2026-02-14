@@ -5,9 +5,9 @@ import NavBar from "./components/navbar/NavBar.tsx";
 import { UserProvider } from "./features/context/UserContext.tsx";
 import { NotificationsProvider } from "./features/context/NotificationContext.tsx";
 import SignIn from "./components/sign/SignIn.tsx";
-import "./index.css";
 import Home from "./components/home/Home.tsx";
 import RegisterForm from "./components/register/Register.tsx";
+import "./index.css";
 
 const router = createBrowserRouter([
   {
@@ -17,10 +17,6 @@ const router = createBrowserRouter([
       {
         index: true,
         Component: Home,
-      },
-      {
-        path: "/register",
-        Component: RegisterForm,
       },
       {
         path: "/about",
@@ -36,6 +32,10 @@ const router = createBrowserRouter([
   {
     path: "/get-started",
     Component: SignIn,
+  },
+  {
+    path: "/register",
+    Component: RegisterForm,
   },
 ]);
 
