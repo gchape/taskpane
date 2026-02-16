@@ -9,7 +9,6 @@ import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
 import java.time.LocalDate;
-import java.time.OffsetDateTime;
 
 @Entity
 @Table(name = "task")
@@ -48,18 +47,15 @@ public class Task {
     @Enumerated(EnumType.STRING)
     private TaskStatus status;
 
-    @ColumnDefault("now()")
-    private OffsetDateTime createdAt;
-
     protected Task() {
     }
 
-    public Task(Project project, LocalDate startDate, LocalDate dueDate,
-                String title, String description) {
-        this.project = project;
-        this.startDate = startDate;
-        this.dueDate = dueDate;
+    public Task(Project project, LocalDate startDate,
+                LocalDate dueDate, String title, String description) {
         this.title = title;
+        this.project = project;
+        this.dueDate = dueDate;
+        this.startDate = startDate;
         this.description = description;
     }
 
@@ -101,9 +97,5 @@ public class Task {
 
     public void setStatus(TaskStatus status) {
         this.status = status;
-    }
-
-    public OffsetDateTime getCreatedAt() {
-        return createdAt;
     }
 }

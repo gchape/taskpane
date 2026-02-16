@@ -8,8 +8,6 @@ import org.hibernate.annotations.ColumnDefault;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
-import java.time.OffsetDateTime;
-
 @Entity
 @Table(name = "employee")
 @SuppressWarnings("unused")
@@ -20,10 +18,16 @@ public class Employee {
     private Long id;
 
     @NotNull
-    @JoinColumn(name = "company_id", nullable = false)
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @OnDelete(action = OnDeleteAction.CASCADE)
-    private Company company;
+    @Size(max = 255)
+    private String email;
+
+    @NotNull
+    @Size(max = 64)
+    private String lastName;
+
+    @NotNull
+    @Size(max = 64)
+    private String firstName;
 
     @NotNull
     @ColumnDefault("'EMPLOYEE'")
@@ -32,31 +36,42 @@ public class Employee {
 
     @NotNull
     @Size(max = 255)
-    private String email;
-
-    @NotNull
-    @Size(max = 64)
-    private String firstName;
-
-    @NotNull
-    @Size(max = 64)
-    private String lastName;
-
-    @NotNull
-    @Size(max = 255)
     private String passwordHash;
 
-    @ColumnDefault("now()")
-    private OffsetDateTime createdAt;
+    @NotNull
+    @JoinColumn(name = "company_id", nullable = false)
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    private Company company;
+
+    @OneToOne(
+            fetch = FetchType.LAZY,
+            cascade = {
+                    CascadeType.PERSIST, CascadeType.REMOVE
+            })
+    @JoinTable(
+            name = "employee_address",
+            joinColumns = {
+                    @JoinColumn(name = "employee_id")
+            },
+            inverseJoinColumns = {
+                    @JoinColumn(
+                            name = "address_id",
+                            nullable = false,
+                            unique = true
+                    )
+            }
+    )
+    private Address address;
 
     protected Employee() {
     }
 
     public Employee(Company company, EmployeeRole role, String email,
                     String firstName, String lastName, String passwordHash) {
-        this.company = company;
         this.role = role;
         this.email = email;
+        this.company = company;
         this.firstName = firstName;
         this.lastName = lastName;
         this.passwordHash = passwordHash;
@@ -66,31 +81,35 @@ public class Employee {
         return id;
     }
 
-    public Company getCompany() {
-        return company;
+    public String getEmail() {
+        return email;
     }
 
     public EmployeeRole getRole() {
         return role;
     }
 
-    public String getEmail() {
-        return email;
+    public Address getAddress() {
+        return address;
     }
 
-    public String getFirstName() {
-        return firstName;
+    public void setAddress(Address address) {
+        this.address = address;
+    }
+
+    public Company getCompany() {
+        return company;
     }
 
     public String getLastName() {
         return lastName;
     }
 
-    public String getPasswordHash() {
-        return passwordHash;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public OffsetDateTime getCreatedAt() {
-        return createdAt;
+    public String getPasswordHash() {
+        return passwordHash;
     }
 }

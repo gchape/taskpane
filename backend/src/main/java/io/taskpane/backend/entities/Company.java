@@ -1,12 +1,7 @@
 package io.taskpane.backend.entities;
 
-import io.taskpane.backend.model.Address;
-import io.taskpane.backend.model.Contact;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
-import org.hibernate.annotations.ColumnDefault;
-
-import java.time.OffsetDateTime;
 
 @Entity
 @Table(name = "company")
@@ -20,43 +15,54 @@ public class Company {
     @NotNull
     private String name;
 
-    private Address address;
+    @NotNull
+    private String email;
 
     @NotNull
-    private Contact contact;
+    private String phone;
 
-    @ColumnDefault("now()")
-    private OffsetDateTime createdAt;
+    @OneToOne(
+            fetch = FetchType.LAZY,
+            cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
+    @JoinTable(
+            name = "company_address",
+            joinColumns = {
+                    @JoinColumn(name = "company_id")
+            },
+            inverseJoinColumns = {
+                    @JoinColumn(
+                            name = "address_id",
+                            nullable = false,
+                            unique = true)
+            })
+    private Address address;
 
     protected Company() {
     }
 
-    public Company(String name, Contact contact) {
+    public Company(String name, String email, String phone) {
         this.name = name;
-        this.contact = contact;
+        this.email = email;
+        this.phone = phone;
     }
 
     public Long getId() {
         return id;
     }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
-
     public String getName() {
         return name;
     }
 
+    public String getEmail() {
+        return email;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
     public Address getAddress() {
         return address;
-    }
-
-    public Contact getContact() {
-        return contact;
-    }
-
-    public OffsetDateTime getCreatedAt() {
-        return createdAt;
     }
 }

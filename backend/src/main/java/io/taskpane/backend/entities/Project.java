@@ -3,11 +3,8 @@ package io.taskpane.backend.entities;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
-import org.hibernate.annotations.ColumnDefault;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
-
-import java.time.OffsetDateTime;
 
 @Entity
 @Table(name = "project")
@@ -30,30 +27,27 @@ public class Project {
     private Employee manager;
 
     @NotNull
-    @ColumnDefault("false")
-    private Boolean isDone;
-
-    @NotNull
     @Size(max = 255)
     private String title;
 
     private String description;
 
-    @ColumnDefault("now()")
-    private OffsetDateTime createdAt;
-
     protected Project() {
     }
 
     public Project(Company company, Employee manager, String title, String description) {
+        this.title = title;
         this.company = company;
         this.manager = manager;
-        this.title = title;
         this.description = description;
     }
 
     public Long getId() {
         return id;
+    }
+
+    public String getTitle() {
+        return title;
     }
 
     public Company getCompany() {
@@ -64,23 +58,7 @@ public class Project {
         return manager;
     }
 
-    public Boolean getDone() {
-        return isDone;
-    }
-
-    public void setDone(Boolean done) {
-        isDone = done;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
     public String getDescription() {
         return description;
-    }
-
-    public OffsetDateTime getCreatedAt() {
-        return createdAt;
     }
 }

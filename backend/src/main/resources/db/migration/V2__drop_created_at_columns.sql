@@ -1,0 +1,15 @@
+ALTER TABLE task
+DROP
+COLUMN IF EXISTS created_at;
+
+ALTER TABLE project
+DROP
+COLUMN IF EXISTS created_at;
+
+ALTER TABLE employee
+DROP
+COLUMN IF EXISTS created_at;
+
+ALTER TABLE company
+DROP
+COLUMN IF EXISTS created_at;
