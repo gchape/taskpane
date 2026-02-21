@@ -1,13 +1,12 @@
-<configuration scan="true" scanPeriod="30 seconds">
-    <!-- Property to read the active Spring profile -->
+<configuration>
     <springProperty name="springProfile" source="spring.profiles.active"/>
-    <!-- Console appender -->
+
     <appender name="Console" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
             <pattern>%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n</pattern>
         </encoder>
     </appender>
-    <!-- File appender (rolling by size) -->
+
     <appender name="FileAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <file>application.log</file>
         <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
@@ -20,17 +19,17 @@
             <pattern>%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n</pattern>
         </encoder>
     </appender>
-    <!-- Root logger -->
+
     <root level="INFO">
         <appender-ref ref="Console"/>
         <appender-ref ref="FileAppender"/>
     </root>
-    <!-- Dev profile overrides -->
+
     <springProfile name="dev">
         <logger name="org.hibernate.SQL" level="DEBUG"/>
         <logger name="org.hibernate.type.descriptor.sql.BasicBinder" level="TRACE"/>
     </springProfile>
-    <!-- Prod profile overrides -->
+
     <springProfile name="prod">
         <root level="WARN"/>
     </springProfile>

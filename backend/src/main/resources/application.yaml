@@ -14,28 +14,21 @@ spring:
     hibernate:
       ddl-auto: validate
 
-  datasource:
-    hikari:
-      minimum-idle: 2
-      idle-timeout: 30_000
-      maximum-pool-size: 10
-      connection-timeout: 30_000
-      pool-name: BackendHikariCP
-
-  mvc:
-    format:
-      date: dd/MM/yyyy
-      date-time: yyyy-MM-dd HH:mm:ss
-      time: HH:mm:ss
-
-  web:
-    error:
-      include-message: always
-      include-exception: true
+  flyway:
+    url: ${spring.datasource.url}
+    user: ${spring.datasource.username}
+    password: ${spring.datasource.password}
+    driver-class-name: ${spring.datasource.driver-class-name}
 
   security:
     remember-me:
-      key: 1111_1111_1111_1111
+      key: ${REMEMBER_ME_KEY}
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: ${GOOGLE_CLIENT_ID}
+            client-secret: ${GOOGLE_CLIENT_SECRET}
 
 server:
   port: 8080
@@ -52,14 +45,26 @@ spring:
     driver-class-name: org.postgresql.Driver
     url: jdbc:postgresql://localhost:5432/postgres
 
-  flyway:
-    url: ${spring.datasource.url}
-    user: ${spring.datasource.username}
-    password: ${spring.datasource.password}
-    driver-class-name: ${spring.datasource.driver-class-name}
+  web:
+    error:
+      include-message: always
+      include-exception: true
+      include-stacktrace: always
 
 ---
 spring:
   config:
     activate:
       on-profile: prod
+
+  web:
+    error:
+      include-message: always
+      include-exception: true
+      include-stacktrace: never
+
+  datasource:
+    username: ${POSTGRES_USERNAME}
+    password: ${POSTGRES_PASSWORD}
+    url: jdbc:postgresql://database:5432/${POSTGRES_DB}
+    driver-class-name: org.postgresql.Driver

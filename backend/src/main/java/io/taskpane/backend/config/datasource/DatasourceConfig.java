@@ -1,4 +1,4 @@
-package io.taskpane.backend.config;
+package io.taskpane.backend.config.datasource;
 
 import com.zaxxer.hikari.HikariDataSource;
 import net.ttddyy.dsproxy.listener.logging.SLF4JQueryLoggingListener;

@@ -1,4 +1,4 @@
-package io.taskpane.backend.model;
+package io.taskpane.backend.config.security;
 
 import io.taskpane.backend.dto.EmployeeUserDto;
 import org.jspecify.annotations.NullMarked;

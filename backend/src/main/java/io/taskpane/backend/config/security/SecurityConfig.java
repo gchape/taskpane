@@ -1,8 +1,7 @@
-package io.taskpane.backend.config;
+package io.taskpane.backend.config.security;
 
 import io.taskpane.backend.config.hibernate.TenantFilter;
 import io.taskpane.backend.dao.EmployeeUserDao;
-import io.taskpane.backend.model.EmployeeUserDetails;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
