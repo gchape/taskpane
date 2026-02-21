@@ -37,13 +37,11 @@ public class Employee {
     @NotNull
     @Size(max = 255)
     private String passwordHash;
-
     @NotNull
     @JoinColumn(name = "company_id", nullable = false)
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @OnDelete(action = OnDeleteAction.CASCADE)
     private Company company;
-
     @OneToOne(
             fetch = FetchType.LAZY,
             cascade = {
@@ -111,5 +109,9 @@ public class Employee {
 
     public String getPasswordHash() {
         return passwordHash;
+    }
+
+    public void setPasswordHash(String passwordHash) {
+        this.passwordHash = passwordHash;
     }
 }

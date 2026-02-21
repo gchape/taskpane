@@ -22,6 +22,21 @@ spring:
       connection-timeout: 30_000
       pool-name: BackendHikariCP
 
+  mvc:
+    format:
+      date: dd/MM/yyyy
+      date-time: yyyy-MM-dd HH:mm:ss
+      time: HH:mm:ss
+
+  web:
+    error:
+      include-message: always
+      include-exception: true
+
+  security:
+    remember-me:
+      key: 1111_1111_1111_1111
+
 server:
   port: 8080
 

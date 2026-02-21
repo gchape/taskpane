@@ -11,6 +11,7 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
         scanBasePackages = {
                 "io.taskpane.backend.dao",
                 "io.taskpane.backend.config",
+                "io.taskpane.backend.service",
                 "io.taskpane.backend.entities",
                 "io.taskpane.backend.controller",
         },

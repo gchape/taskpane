@@ -17,7 +17,7 @@ public class HibernateConfig {
     private static final String DEFAULT_SCHEMA = "public";
 
     @Bean
-    public HibernatePropertiesCustomizer hibernatePropertiesCustomizer(DataSource dataSource) {
+    HibernatePropertiesCustomizer hibernatePropertiesCustomizer(DataSource dataSource) {
         return props -> {
             props.put(AvailableSettings.MULTI_TENANT_IDENTIFIER_RESOLVER,
                     new TenantIdentifierResolver());
