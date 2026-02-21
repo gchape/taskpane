@@ -1,12 +1,6 @@
 <configuration>
     <springProperty name="springProfile" source="spring.profiles.active"/>
 
-    <appender name="Console" class="ch.qos.logback.core.ConsoleAppender">
-        <encoder>
-            <pattern>%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n</pattern>
-        </encoder>
-    </appender>
-
     <appender name="FileAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <file>application.log</file>
         <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
@@ -21,7 +15,6 @@
     </appender>
 
     <root level="INFO">
-        <appender-ref ref="Console"/>
         <appender-ref ref="FileAppender"/>
     </root>
 
@@ -31,6 +24,6 @@
     </springProfile>
 
     <springProfile name="prod">
-        <root level="WARN"/>
+        <root level="ERROR"/>
     </springProfile>
 </configuration>
