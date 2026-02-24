@@ -29,6 +29,12 @@ spring:
           google:
             client-id: ${GOOGLE_CLIENT_ID}
             client-secret: ${GOOGLE_CLIENT_SECRET}
+            scope:
+              - openid
+              - profile
+              - email
+        provider:
+          google:
 
 server:
   port: 8080
@@ -51,6 +57,9 @@ spring:
       include-exception: true
       include-stacktrace: always
 
+frontend:
+  url: localhost:5432
+
 ---
 spring:
   config:
@@ -68,3 +77,6 @@ spring:
     password: ${POSTGRES_PASSWORD}
     url: jdbc:postgresql://database:5432/${POSTGRES_DB}
     driver-class-name: org.postgresql.Driver
+
+frontend:
+  url: ${FRONTEND_URL}
