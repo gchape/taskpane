@@ -1,0 +1,26 @@
+{
+  "author": "",
+  "bugs": {
+    "url": "https://github.com/gchape/convoy/issues"
+  },
+  "description": "",
+  "devDependencies": {
+    "@commitlint/cli": "^20.4.3",
+    "@commitlint/config-conventional": "^20.4.3",
+    "husky": "^9.1.7"
+  },
+  "homepage": "https://github.com/gchape/convoy#readme",
+  "keywords": [],
+  "license": "ISC",
+  "main": "index.js",
+  "name": "convoy",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gchape/convoy.git"
+  },
+  "scripts": {
+    "prepare": "husky",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "version": "1.0.0"
+}
